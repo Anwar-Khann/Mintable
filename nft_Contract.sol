@@ -14,7 +14,7 @@ contract MyToken is ERC721, Ownable {
 
     function safeMint(address to, uint256 tokenId) public payable {
         require(limit <= 50, "limit reached");
-        require(msg.value == fee, "Haha you Broke");
+        require(msg.value == fee, "Insufficient fund's");
         if (limit == 0) {
             //customize it for limit count
             address payable reciever = payable(getAdd());
