@@ -31,7 +31,7 @@ contract MyNft is ERC721, Ownable {
                 uint256 toOwners = ownersCut / length;
                 anteMatter.transfer(minters[i], toOwners);
             }
-        }  else if (currentSupply > 25 && currentSupply <= MAX_SUPPLY) {
+        } else if (currentSupply > 25 && currentSupply <= MAX_SUPPLY) {
             uint256 contractCut = (fee * 80) / 100;
             uint256 ownersCut = fee - contractCut;
             anteMatter.transferFrom(msg.sender, address(this), contractCut);
@@ -52,7 +52,7 @@ contract MyNft is ERC721, Ownable {
     }
 
     function withdrawTokens() public onlyOwner {
-    uint256 balance = anteMatter.balanceOf(address(this));
-    anteMatter.transfer(msg.sender, balance);
-}
+        uint256 balance = anteMatter.balanceOf(address(this));
+        anteMatter.transfer(msg.sender, balance);
+    }
 }
